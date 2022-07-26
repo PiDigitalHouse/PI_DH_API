@@ -52,14 +52,14 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         // PUT: api/CadastroUsuario/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCadastroUsuario(int id, CadastroUsuario cadastroUsuario)
+        public async Task<IActionResult> PutCadastroUsuario(int id, CadastroUsuario cadastroUser)
         {
-            if (id != cadastroUsuario.Id)
+            if (id != cadastroUser.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cadastroUsuario).State = EntityState.Modified;
+            _context.Entry(cadastroUser).State = EntityState.Modified;
 
             try
             {
