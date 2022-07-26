@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:PI_DigitalHouse_API_MVCContextConnection"
+    }
+  }
+}
