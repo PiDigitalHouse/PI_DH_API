@@ -1,0 +1,138 @@
+/* geral */
+
+/* Bordas e fonte*/
+* {
+margin:0;
+padding:0;
+box-sizing: border-box;
+font-family:Arial, Helvetica, sans-serif;
+color: #323232;
+border: none;
+}
+/* Imagem de fundo */
+body{
+    background-image: url('../img/49_animais_domesticos_definicao_e_especies_23221_orig.jpg');
+    background-size: cover;
+}
+/* Tirar bordas das barras */
+textarea:focus, input:focus{
+outline: none;
+}
+/* Fonte */
+a, label {
+    font-size: .8rem;
+}
+/* Quando você passar o mouse em cima da palavra ela fica da cor escolhida "AZUL" */
+a:hover{
+    color: blue;
+}
+
+/* Container login */
+
+/* Centralizando o bloco de login */
+#login-container {
+    background-color: #FFFF;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 30px;
+    margin-top: 10vh;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Formulário */
+
+/* Margem sobre informações de cima e de baixo*/
+form {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Criei o espaçamento */
+label, input {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+/* Adicionei bordas personalizada e o espaçamento */
+input {
+    border-bottom:  2px solid #000000;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Quando você clica na informação ela fica com cor diferente */
+input:focus {
+    border-bottom: 2px solid #8b8585;
+}
+
+/* Empurrei pra direita "Esqueci minha senha" */
+#forgot-pass{
+text-align: right;
+display: block;
+}
+
+/* Coloquei centralizado a palavra, negrito, letra maiuscula e arrumei a borda do botão */
+/* Alterei a cor da palavra, a cor do botão, e quando a seta fica em cima do botão aparece uma mão */
+input[type="submit"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #FFFF;
+    background-color: aquamarine;
+    cursor: pointer;
+  }
+
+  /*O botão altera a cor quando selecionado */
+  input[type="submit"]:hover{
+    background-color: rgb(4, 146, 171);
+    transition: .4s;
+  }
+
+  /*Redes Sociais*/
+
+  /* Margem do iconer das redes sociais */
+  #social-container, #social-container p{
+    margin-bottom: 20px;
+  }
+  
+  /* Mexendo na borda, tamanho do botão das redes sociais */
+  #social-container i{
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    line-height: 40px;
+    color: #FFFF;
+    margin: 0 5px;
+    cursor: pointer;
+
+  }
+  /* Colorindo os botões das redes sociais */
+  .fa-facebook-f{
+    background-color: rgb(7, 7, 187);
+  }
+  .fa-google{
+    background-color: rgb(223, 6, 49);
+  }
+
+  /* Informações do rodapé */
+
+  #register-container p{
+    margin-bottom: 10px;
+  }
+
+
+
+
+
+
+
+
+
