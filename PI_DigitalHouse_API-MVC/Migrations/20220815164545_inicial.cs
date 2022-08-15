@@ -4,7 +4,7 @@
 
 namespace PI_DigitalHouse_API_MVC.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +16,8 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Telefone = table.Column<int>(type: "int", nullable: false),
                     TipoPet = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NomePet = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Informações = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NomePet = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Informações = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumColeira = table.Column<int>(type: "int", nullable: false)
                 },
@@ -52,14 +52,14 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Informações = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Raça = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CadastroUsuarioId = table.Column<int>(type: "int", nullable: false)
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CadastroPets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CadastroPets_CadastroUsuarios_CadastroUsuarioId",
-                        column: x => x.CadastroUsuarioId,
+                        name: "FK_CadastroPets_CadastroUsuarios_UsuarioId",
+                        column: x => x.UsuarioId,
                         principalTable: "CadastroUsuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -88,9 +88,9 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CadastroPets_CadastroUsuarioId",
+                name: "IX_CadastroPets_UsuarioId",
                 table: "CadastroPets",
-                column: "CadastroUsuarioId");
+                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PerdiMeusPets_CadastroPetId",

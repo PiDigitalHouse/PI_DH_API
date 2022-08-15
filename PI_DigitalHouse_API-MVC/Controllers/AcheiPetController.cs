@@ -20,6 +20,11 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Listar todos os Pets encontrados
+        /// </summary>
+        /// <returns></returns>
+
         // GET: api/AcheiPet
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AcheiPet>>> GetAcheiPet()
@@ -31,6 +36,12 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return await _context.AcheiPet.ToListAsync();
         }
 
+        /// <summary>
+        /// Encontrar Pet pelo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+         
         // GET: api/AcheiPet/5
         [HttpGet("{id}")]
         public async Task<ActionResult<AcheiPet>> GetAcheiPet(int id)
@@ -48,6 +59,13 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
             return acheiPet;
         }
+
+        /// <summary>
+        /// Editar cadastro de Pet achado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="acheiPet"></param>
+        /// <returns></returns>
 
         // PUT: api/AcheiPet/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -80,6 +98,26 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Cadastrar  Pet achado
+        /// </summary>
+        /// <param name="acheiPet"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Exemplo Requisição:
+        /// 
+        ///     POST/ PET ACHADO
+        ///     {
+        ///        
+        ///         "telefone": (79)9 1234 5678,
+        ///         "tipoPet": "Dog",
+        ///         "nomePet": "Paçoca",
+        ///         "informações": "Encontrei na rua, próximo à praça, no bairro X ás 19H",
+        ///         "endereco": "Bairro X, rua Y",
+        ///         "numColeira": 54
+        ///     }
+        /// </remarks>
+
         // POST: api/AcheiPet
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -94,6 +132,12 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
             return CreatedAtAction("GetAcheiPet", new { id = acheiPet.Id }, acheiPet);
         }
+
+        /// <summary>
+        /// Deletar Pet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         // DELETE: api/AcheiPet/5
         [HttpDelete("{id}")]

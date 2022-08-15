@@ -20,6 +20,11 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Listar todos os pets perdidos
+        /// </summary>
+        /// <returns></returns>
+
         // GET: api/PerdiMeusPets
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PerdiMeuPet>>> GetPerdiMeuPet()
@@ -31,6 +36,13 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return await _context.PerdiMeusPets.ToListAsync();
         }
 
+
+        /// <summary>
+        /// Encontrar Pet perdido pelo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+       
         // GET: api/PerdiMeusPets/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PerdiMeuPet>> GetPerdiMeuPet(int id)
@@ -48,7 +60,13 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
             return perdiMeuPet;
         }
-
+        /// <summary>
+        /// Editar cadastro de Pet perdido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="perdiMeuPet"></param>
+        /// <returns></returns>
+         
         // PUT: api/PerdiMeusPets/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -79,10 +97,22 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
             return NoContent();
         }
+        /// <summary>
+        /// Cadastrar um Pet perdido
+        /// </summary>
+        /// <param name="perdiMeuPet"></param>
+        /// <returns></returns>
+        /// {
+        ///             "id": 0,
+        ///             "informacoes": "string",
+        ///             "localDesaparecimento": "string",
+        ///             "statusPerdido": true,
+        ///             "cadastroPetId": 0
 
-        // POST: api/PerdiMeusPets
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+
+    // POST: api/PerdiMeusPets
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPost]
         public async Task<ActionResult<PerdiMeuPet>> PostPerdiMeuPet(PerdiMeuPet perdiMeuPet)
         {
           if (_context.PerdiMeusPets == null)
@@ -94,7 +124,12 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
             return CreatedAtAction("GetPerdiMeuPet", new { id = perdiMeuPet.Id }, perdiMeuPet);
         }
-
+        /// <summary>
+        /// Deletar Pet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+      
         // DELETE: api/PerdiMeusPets/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePerdiMeuPet(int id)

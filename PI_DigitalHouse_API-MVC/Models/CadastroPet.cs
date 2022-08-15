@@ -10,7 +10,7 @@ namespace PI_DigitalHouse_API_MVC.Models
         public string Nome { get; set; }
         public string? Informações { get; set; }
         public string Raça { get; set; }
-        public int CadastroUsuarioId { get; set; }
+        public int UsuarioId { get; set; }
         public PerdiMeuPet? PerdiMeuPet { get; set; }
 
         //public imagem {get; set;}
