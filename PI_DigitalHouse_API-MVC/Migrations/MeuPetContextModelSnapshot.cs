@@ -34,10 +34,10 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Informações")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NomePet")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumColeira")
@@ -63,9 +63,6 @@ namespace PI_DigitalHouse_API_MVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CadastroUsuarioId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Informações")
                         .HasColumnType("nvarchar(max)");
 
@@ -81,39 +78,14 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CadastroUsuarioId");
-
-                    b.ToTable("CadastroPets");
-                });
-
-            modelBuilder.Entity("PI_DigitalHouse_API_MVC.Models.CadastroUsuario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomeCompleto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("StatusCadastro")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("CadastroUsuarios");
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("CadastroPets");
                 });
 
             modelBuilder.Entity("PI_DigitalHouse_API_MVC.Models.PerdiMeuPet", b =>
@@ -146,11 +118,39 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                     b.ToTable("PerdiMeusPets");
                 });
 
+            modelBuilder.Entity("PI_DigitalHouse_API_MVC.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomeCompleto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("StatusCadastro")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CadastroUsuarios");
+                });
+
             modelBuilder.Entity("PI_DigitalHouse_API_MVC.Models.CadastroPet", b =>
                 {
-                    b.HasOne("PI_DigitalHouse_API_MVC.Models.CadastroUsuario", null)
+                    b.HasOne("PI_DigitalHouse_API_MVC.Models.Usuario", null)
                         .WithMany("Pets")
-                        .HasForeignKey("CadastroUsuarioId")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -169,7 +169,7 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                     b.Navigation("PerdiMeuPet");
                 });
 
-            modelBuilder.Entity("PI_DigitalHouse_API_MVC.Models.CadastroUsuario", b =>
+            modelBuilder.Entity("PI_DigitalHouse_API_MVC.Models.Usuario", b =>
                 {
                     b.Navigation("Pets");
                 });

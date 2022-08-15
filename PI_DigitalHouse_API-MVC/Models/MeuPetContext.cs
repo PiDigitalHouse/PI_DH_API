@@ -13,7 +13,7 @@ namespace PI_DigitalHouse_API_MVC.Models
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
-        //    modelBuilder.Entity<CadastroUsuario>()
+        //    modelBuilder.Entity<Usuario>()
         //        .ToTable("Usuários")
         //        .HasKey(t => t.Id);
 
@@ -21,7 +21,7 @@ namespace PI_DigitalHouse_API_MVC.Models
         //        .ToTable("Alunos")
         //        .HasKey(t => t.Id);
 
-        //    modelBuilder.Entity<CadastroUsuario>()
+        //    modelBuilder.Entity<Usuario>()
         //        .HasMany(t => t.Pets);
 
         //}
@@ -30,7 +30,7 @@ namespace PI_DigitalHouse_API_MVC.Models
             //Configuracao.UseInMemoryDatabase("MeuPet");
             Configuracao.UseSqlServer(@"Data Source = ME003391\SQLEXPRESS; Initial Catalog = MeuPet;Integrated Security = True; Connect Timeout = 30; Encrypt=False; TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False");
         }
-        public DbSet<CadastroUsuario> CadastroUsuarios { get; set; }
+        public DbSet<Usuario> CadastroUsuarios { get; set; }
         public DbSet<PerdiMeuPet> PerdiMeusPets { get; set; }
         public DbSet<AcheiPet> AcheiPet { get; set; }
     }

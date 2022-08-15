@@ -11,18 +11,23 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CadastroUsuarioController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
         private readonly MeuPetContext _context;
 
-        public CadastroUsuarioController(MeuPetContext context)
+        public UsuarioController(MeuPetContext context)
         {
             _context = context;
         }
 
-        // GET: api/CadastroUsuario
+        /// <summary>
+        /// Listar todos os usuários cadastrados
+        /// </summary>
+        /// <returns></returns>
+
+        // GET: api/Usuario
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CadastroUsuario>>> GetCadastroUsuarios()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetCadastroUsuarios()
         {
           if (_context.CadastroUsuarios == null)
           {
@@ -31,9 +36,15 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return await _context.CadastroUsuarios.ToListAsync();
         }
 
-        // GET: api/CadastroUsuario/5
+        /// <summary>
+        /// Encontrar usuário pelo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+         
+        // GET: api/Usuario/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CadastroUsuario>> GetCadastroUsuario(int id)
+        public async Task<ActionResult<Usuario>> GetCadastroUsuario(int id)
         {
           if (_context.CadastroUsuarios == null)
           {
@@ -49,10 +60,18 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return cadastroUsuario;
         }
 
-        // PUT: api/CadastroUsuario/5
+
+        /// <summary>
+        /// Editar cadastro de usuário
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cadastroUser"></param>
+        /// <returns></returns>
+     
+        // PUT: api/Usuario/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCadastroUsuario(int id, CadastroUsuario cadastroUser)
+        public async Task<IActionResult> PutCadastroUsuario(int id, Usuario cadastroUser)
         {
             if (id != cadastroUser.Id)
             {
@@ -80,10 +99,16 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return NoContent();
         }
 
-        // POST: api/CadastroUsuario
+        /// <summary>
+        /// Cadastrar um usuário
+        /// </summary>
+        /// <param name="cadastroUsuario"></param>
+        /// <returns></returns>
+
+        // POST: api/Usuario
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<CadastroUsuario>> PostCadastroUsuario(CadastroUsuario cadastroUsuario)
+        public async Task<ActionResult<Usuario>> PostCadastroUsuario(Usuario cadastroUsuario)
         {
           if (_context.CadastroUsuarios == null)
           {
@@ -95,7 +120,14 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return CreatedAtAction("GetCadastroUsuario", new { id = cadastroUsuario.Id }, cadastroUsuario);
         }
 
-        // DELETE: api/CadastroUsuario/5
+
+        /// <summary>
+        /// Deletar usuário
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+       
+        // DELETE: api/Usuario/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCadastroUsuario(int id)
         {

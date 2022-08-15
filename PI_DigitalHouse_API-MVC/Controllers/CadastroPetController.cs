@@ -19,6 +19,10 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         {
             _context = context;
         }
+        /// <summary>
+        /// Listar todos os pets cadastrados
+        /// </summary>
+        /// <returns></returns>
 
         // GET: api/CadastroPet
         [HttpGet]
@@ -30,6 +34,12 @@ namespace PI_DigitalHouse_API_MVC.Controllers
           }
             return await _context.CadastroPets.ToListAsync();
         }
+
+        /// <summary>
+        /// Encontrar Pet pelo ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         // GET: api/CadastroPet/5
         [HttpGet("{id}")]
@@ -49,6 +59,13 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return cadastroPet;
         }
 
+        /// <summary>
+        /// Editar cadastro de Pet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cadastroPet"></param>
+        /// <returns></returns>
+ 
         // PUT: api/CadastroPet/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -80,6 +97,25 @@ namespace PI_DigitalHouse_API_MVC.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Cadastrar um Pet
+        /// </summary>
+        /// <param name="cadastroPet"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// Exemplo Requisição:
+        /// 
+        ///     POST/ CADASTRO PET 
+        ///     {
+        ///        
+        ///         "tipoPet": "Dog",
+        ///         "nome": "Luna",
+        ///         "informações": Porte pequeno, branca,
+        ///         "raça": "Maltês",
+        ///         "usuarioId": 22,
+        ///     }
+        /// </remarks>
+
         // POST: api/CadastroPet
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -94,6 +130,12 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
             return CreatedAtAction("GetCadastroPet", new { id = cadastroPet.Id }, cadastroPet);
         }
+
+        /// <summary>
+        /// Deletar Pet
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         // DELETE: api/CadastroPet/5
         [HttpDelete("{id}")]

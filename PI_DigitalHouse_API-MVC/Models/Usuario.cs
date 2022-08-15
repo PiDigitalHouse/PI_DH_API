@@ -2,7 +2,7 @@
 
 namespace PI_DigitalHouse_API_MVC.Models
 {
-    public class CadastroUsuario
+    public class Usuario
     {
         public int Id { get; set; }
         [Required]
