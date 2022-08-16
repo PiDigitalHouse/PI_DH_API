@@ -5,10 +5,6 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PI_DigitalHouse_API-MC", "PI_DigitalHouse_API-MVC\PI_DigitalHouse_API-MC.csproj", "{EEAD7DB8-A334-4E57-B7D3-DDDFD01F847C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testes", "testes", "{C86D3394-5B0C-4216-ACB1-FB071A6C803F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates", "Templates\Templates.csproj", "{67407FEE-3FA1-47B1-B9C6-3DF65A522AC5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,16 +15,9 @@ Global
 		{EEAD7DB8-A334-4E57-B7D3-DDDFD01F847C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEAD7DB8-A334-4E57-B7D3-DDDFD01F847C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEAD7DB8-A334-4E57-B7D3-DDDFD01F847C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67407FEE-3FA1-47B1-B9C6-3DF65A522AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67407FEE-3FA1-47B1-B9C6-3DF65A522AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67407FEE-3FA1-47B1-B9C6-3DF65A522AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67407FEE-3FA1-47B1-B9C6-3DF65A522AC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{67407FEE-3FA1-47B1-B9C6-3DF65A522AC5} = {C86D3394-5B0C-4216-ACB1-FB071A6C803F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0BBF0CB7-CF9F-4528-84C5-51192A8F284C}
