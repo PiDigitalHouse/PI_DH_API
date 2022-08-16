@@ -6,6 +6,8 @@ namespace PI_DigitalHouse_API_MVC.Models
     {
         public int Id { get; set; }
         [Required]
+
+        [MinLength(11, ErrorMessage = "O número do telefone está incompleto")]
         public int Telefone { get; set; }
         public string TipoPet { get; set; }
         public string? NomePet { get; set; }
