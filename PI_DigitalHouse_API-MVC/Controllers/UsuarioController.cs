@@ -11,6 +11,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class UsuarioController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -27,6 +28,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
         // GET: api/Usuario
         [HttpGet]
+     
         public async Task<ActionResult<IEnumerable<Usuario>>> GetCadastroUsuarios()
         {
           if (_context.CadastroUsuarios == null)
@@ -44,6 +46,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
          
         // GET: api/Usuario/5
         [HttpGet("{id}")]
+        
         public async Task<ActionResult<Usuario>> GetCadastroUsuario(int id)
         {
           if (_context.CadastroUsuarios == null)
@@ -104,6 +107,16 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         /// </summary>
         /// <param name="cadastroUsuario"></param>
         /// <returns></returns>
+        /// <remarks>
+        /// Exemplo requisição:
+        /// 
+        ///     POST /USUARIO
+        ///     {
+        ///           "nomeCompleto": "José Silva",
+        ///           "email": "exemplo222@gmail.com",
+        ///           "telefone": "79 9 88887777"
+        ///      }     
+        /// </remarks>
 
         // POST: api/Usuario
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

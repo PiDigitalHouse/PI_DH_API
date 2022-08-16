@@ -11,6 +11,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class PerdiMeuPetController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -27,6 +28,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
         // GET: api/PerdiMeusPets
         [HttpGet]
+       
         public async Task<ActionResult<IEnumerable<PerdiMeuPet>>> GetPerdiMeuPet()
         {
           if (_context.PerdiMeusPets == null)
@@ -45,6 +47,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
        
         // GET: api/PerdiMeusPets/5
         [HttpGet("{id}")]
+     
         public async Task<ActionResult<PerdiMeuPet>> GetPerdiMeuPet(int id)
         {
           if (_context.PerdiMeusPets == null)
@@ -102,17 +105,22 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         /// </summary>
         /// <param name="perdiMeuPet"></param>
         /// <returns></returns>
-        /// {
-        ///             "id": 0,
-        ///             "informacoes": "string",
-        ///             "localDesaparecimento": "string",
-        ///             "statusPerdido": true,
-        ///             "cadastroPetId": 0
+        /// <remarks>
+        ///  Exemplo Requisição:
+        ///  
+        ///      POST / CADASTRO PET 
+        ///      {
+        ///          "informacoes": Cachorro pqueno branco, com mancha preta na perna esquerda traseira, orelhas caídas.
+        ///          "localDesaparecimento": Bairro X,
+        ///          "statusPerdido": true,
+        ///          "cadastroPetId": 34
+        ///      }
+        ///</remarks>
 
 
-    // POST: api/PerdiMeusPets
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPost]
+        // POST: api/PerdiMeusPets
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
         public async Task<ActionResult<PerdiMeuPet>> PostPerdiMeuPet(PerdiMeuPet perdiMeuPet)
         {
           if (_context.PerdiMeusPets == null)

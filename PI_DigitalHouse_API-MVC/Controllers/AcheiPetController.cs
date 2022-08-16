@@ -11,6 +11,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class AcheiPetController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -27,6 +28,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
         // GET: api/AcheiPet
         [HttpGet]
+      
         public async Task<ActionResult<IEnumerable<AcheiPet>>> GetAcheiPet()
         {
           if (_context.AcheiPet == null)
@@ -44,6 +46,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
          
         // GET: api/AcheiPet/5
         [HttpGet("{id}")]
+      
         public async Task<ActionResult<AcheiPet>> GetAcheiPet(int id)
         {
           if (_context.AcheiPet == null)
@@ -121,6 +124,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         // POST: api/AcheiPet
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+
         public async Task<ActionResult<AcheiPet>> PostAcheiPet(AcheiPet acheiPet)
         {
           if (_context.AcheiPet == null)
