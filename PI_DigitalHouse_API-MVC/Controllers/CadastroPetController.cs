@@ -11,6 +11,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class CadastroPetController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -26,6 +27,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
         // GET: api/CadastroPet
         [HttpGet]
+    
         public async Task<ActionResult<IEnumerable<CadastroPet>>> GetCadastroPets()
         {
           if (_context.CadastroPets == null)
@@ -43,6 +45,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
         // GET: api/CadastroPet/5
         [HttpGet("{id}")]
+   
         public async Task<ActionResult<CadastroPet>> GetCadastroPet(int id)
         {
           if (_context.CadastroPets == null)
@@ -112,7 +115,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         ///         "nome": "Luna",
         ///         "informações": Porte pequeno, branca,
         ///         "raça": "Maltês",
-        ///         "usuarioId": 22,
+        ///         "usuarioId": 22
         ///     }
         /// </remarks>
 

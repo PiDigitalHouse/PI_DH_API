@@ -35,7 +35,7 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                     NomeCompleto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StatusCadastro = table.Column<bool>(type: "bit", nullable: false)
+                    StatusCadastro = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
