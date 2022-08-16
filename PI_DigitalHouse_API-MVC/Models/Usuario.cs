@@ -8,6 +8,7 @@ namespace PI_DigitalHouse_API_MVC.Models
         [Required]
         public string NomeCompleto { get; set; }
         public string Email { get; set; }
+        public string Senha { get; set; }
 
         [MinLength(11, ErrorMessage = "O número do telefone está incompleto")]
         public string Telefone { get; set; }
