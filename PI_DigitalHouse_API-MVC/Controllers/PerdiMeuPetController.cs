@@ -13,7 +13,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    //[Authorize]
+    [Authorize]
     public class PerdiMeuPetController : ControllerBase
     {
         private readonly MeuPetContext _context;
