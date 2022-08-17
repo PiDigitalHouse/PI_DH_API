@@ -8,9 +8,14 @@ namespace PI_DigitalHouse_API_MVC.Models
         public MeuPetContext(DbContextOptions<MeuPetContext> options) : base(options)
         {
         }
-       
         public DbSet<CadastroPet> CadastroPets { get; set; }
+        public DbSet<Usuario> CadastroUsuarios { get; set; }
+        public DbSet<PerdiMeuPet> PerdiMeusPets { get; set; }
+        public DbSet<AcheiPet> AcheiPet { get; set; }
 
+       
+        
+        
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<Usuario>()
@@ -30,8 +35,6 @@ namespace PI_DigitalHouse_API_MVC.Models
             //Configuracao.UseInMemoryDatabase("MeuPet");
             Configuracao.UseSqlServer(@"Data Source = ME003391\SQLEXPRESS; Initial Catalog = MeuPet;Integrated Security = True; Connect Timeout = 30; Encrypt=False; TrustServerCertificate=False; ApplicationIntent=ReadWrite; MultiSubnetFailover=False");
         }
-        public DbSet<Usuario> CadastroUsuarios { get; set; }
-        public DbSet<PerdiMeuPet> PerdiMeusPets { get; set; }
-        public DbSet<AcheiPet> AcheiPet { get; set; }
+      
     }
 }

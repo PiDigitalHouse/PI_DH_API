@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PI_DigitalHouse_API_MVC.Models;
+using PI_DigitalHouse_API_MVC.Services;
 
 namespace PI_DigitalHouse_API_MVC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    
+    [Authorize]
+
     public class UsuarioController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -21,7 +24,32 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         {
             _context = context;
         }
+        [HttpPost]
+        [Route("Autenticar")]
+        [AllowAnonymous]
+        public ActionResult<dynamic> Autenticar(Credencial credencial)
+        {
+            // 1. Buscar um usuário que tenha o mesmo email
+            // e senha que a credencial.
+            var usuario = _context.CadastroUsuarios.Where(Usuario => Usuario.Email == credencial.Email && Usuario.Senha == credencial.Senha).FirstOrDefault();
 
+            // 2. Se usuário não for encontrado retorno email ou Senha incorretos.
+            if (usuario == null)
+            {
+                return NotFound(new { menseger = "Email ou senha incorretos." });
+            }
+            else
+            {
+                // 3. Caso usuário seja encontrado...
+
+                // 3.1. Gerar um Token.
+                usuario.Senha = "";
+                var chaveToken = TokenService.GerarChaveToken(usuario);
+
+                // 3.2. Retorno o Token.
+                return Ok(new { token = chaveToken });
+            }
+        }
         /// <summary>
         /// Listar todos os usuários cadastrados
         /// </summary>
@@ -29,7 +57,8 @@ namespace PI_DigitalHouse_API_MVC.Controllers
 
         // GET: api/Usuario
         [HttpGet]
-     
+       
+
         public async Task<ActionResult<IEnumerable<Usuario>>> GetCadastroUsuarios()
         {
           if (_context.CadastroUsuarios == null)
@@ -48,6 +77,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         // GET: api/Usuario/5
         [HttpGet("{id}")]
         
+
         public async Task<ActionResult<Usuario>> GetCadastroUsuario(int id)
         {
           if (_context.CadastroUsuarios == null)
@@ -75,6 +105,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         // PUT: api/Usuario/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+       
         public async Task<IActionResult> PutCadastroUsuario(int id, Usuario cadastroUser)
         {
             if (id != cadastroUser.Id)
@@ -115,6 +146,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         ///     {
         ///           "nomeCompleto": "José Silva",
         ///           "email": "exemplo222@gmail.com",
+        ///           "senha": "xaT@888##B",
         ///           "telefone": "79 9 88887777"
         ///      }     
         /// </remarks>
@@ -122,6 +154,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         // POST: api/Usuario
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult<Usuario>> PostCadastroUsuario(Usuario cadastroUsuario)
         {
           if (_context.CadastroUsuarios == null)
@@ -143,6 +176,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
        
         // DELETE: api/Usuario/5
         [HttpDelete("{id}")]
+        
         public async Task<IActionResult> DeleteCadastroUsuario(int id)
         {
             if (_context.CadastroUsuarios == null)
