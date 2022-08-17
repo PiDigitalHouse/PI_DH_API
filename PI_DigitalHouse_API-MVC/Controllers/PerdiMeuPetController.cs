@@ -13,7 +13,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize]
+    //[Authorize]
     public class PerdiMeuPetController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -112,8 +112,8 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         ///  
         ///      POST / CADASTRO PET 
         ///      {
-        ///          "informacoes": Cachorro pqueno branco, com mancha preta na perna esquerda traseira, orelhas caídas.
-        ///          "localDesaparecimento": Bairro X,
+        ///          "informacoes": "Cachorro pqueno branco, com mancha preta na perna esquerda traseira, orelhas caídas",
+        ///          "localDesaparecimento": "Bairro X",
         ///          "statusPerdido": true,
         ///          "cadastroPetId": 34
         ///      }

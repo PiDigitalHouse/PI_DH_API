@@ -13,7 +13,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize]
+   // [Authorize]
     public class CadastroPetController : ControllerBase
     {
         private readonly MeuPetContext _context;
@@ -115,7 +115,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         ///        
         ///         "tipoPet": "Dog",
         ///         "nome": "Luna",
-        ///         "informações": Porte pequeno, branca,
+        ///         "informações": "Porte pequeno, branca",
         ///         "raça": "Maltês",
         ///         "usuarioId": 22
         ///     }

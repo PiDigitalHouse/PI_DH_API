@@ -14,7 +14,7 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Telefone = table.Column<int>(type: "int", nullable: false),
+                    Telefone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     TipoPet = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NomePet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Informações = table.Column<string>(type: "nvarchar(max)", nullable: false),

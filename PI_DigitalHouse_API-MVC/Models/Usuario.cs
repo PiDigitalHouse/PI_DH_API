@@ -19,3 +19,5 @@ namespace PI_DigitalHouse_API_MVC.Models
         //public FotoPerfil {get; set;} 
     }
 }
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQCIsIm5iZiI6MTY2MDc1MTI1NiwiZXhwIjoxNjYwNzU4NDU2LCJpYXQiOjE2NjA3NTEyNTZ9.fnh68HxrPhTki4nWibQEh1oNcxaK7Nz5Ynk48WQvJPY"

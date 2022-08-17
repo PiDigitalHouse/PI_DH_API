@@ -147,7 +147,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         ///           "nomeCompleto": "José Silva",
         ///           "email": "exemplo222@gmail.com",
         ///           "senha": "xaT@888##B",
-        ///           "telefone": "79 9 88887777"
+        ///           "telefone": "79988887777"
         ///      }     
         /// </remarks>
 
