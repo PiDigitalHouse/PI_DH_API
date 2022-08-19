@@ -44,8 +44,10 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                     b.Property<int>("NumColeira")
                         .HasColumnType("int");
 
-                    b.Property<int>("Telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("TipoPet")
                         .IsRequired()

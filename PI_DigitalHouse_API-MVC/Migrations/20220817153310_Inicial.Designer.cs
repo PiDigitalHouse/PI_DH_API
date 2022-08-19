@@ -12,7 +12,7 @@ using PI_DigitalHouse_API_MVC.Models;
 namespace PI_DigitalHouse_API_MVC.Migrations
 {
     [DbContext(typeof(MeuPetContext))]
-    [Migration("20220816214749_Inicial")]
+    [Migration("20220817153310_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,8 +46,10 @@ namespace PI_DigitalHouse_API_MVC.Migrations
                     b.Property<int>("NumColeira")
                         .HasColumnType("int");
 
-                    b.Property<int>("Telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<string>("TipoPet")
                         .IsRequired()

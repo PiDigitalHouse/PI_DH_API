@@ -112,7 +112,7 @@ namespace PI_DigitalHouse_API_MVC.Controllers
         ///     POST/ PET ACHADO
         ///     {
         ///        
-        ///         "telefone": (79)9 1234 5678,
+        ///         "telefone": "79912345678",
         ///         "tipoPet": "Dog",
         ///         "nomePet": "Paçoca",
         ///         "informações": "Encontrei na rua, próximo à praça, no bairro X ás 19H",

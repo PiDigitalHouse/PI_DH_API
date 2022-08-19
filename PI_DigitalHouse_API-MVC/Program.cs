@@ -46,7 +46,7 @@ builder.Services.AddSwaggerGen(config =>
     {
         Version = "AL1",
         Title = "API FIND PET",
-        Description = "API FIND PET / Cadastros de usuários, pets perdidos e achados. Autenticação em andamento",
+        Description = "API FIND PET / Cadastros de usuários, pets perdidos e achados. Autenticação.",
 
         //License = new OpenApiLicense
         //{
@@ -81,3 +81,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
